@@ -1,13 +1,14 @@
-package appiumMobileTest;
-
+package stepDefinitions;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class Calculator {
+
+
 
 
     public static AppiumDriver<MobileElement> driver;
@@ -30,8 +31,8 @@ public class Calculator {
 //        Appium Driver
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AppiumDriver<MobileElement>(url, cap);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         System.out.println("Calculator is started...");
-
 
 
         driver.findElement(By.id("com.google.android.calculator:id/digit_5")).click();
